@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "doc": "Linear Model in Avro format",
+  "name": "LinearModelAvro",
+  "namespace": "com.linkedin.mlease.avro",
+  "fields" : [
+    { "name": "key", "type": "string" },
+    { "name": "model", "type": {"type": "array", "items": {
+    	"type": "record", "name": "feature", "fields": [
+    		{"name": "name", "type": "string"},
+    		{"name": "term", "type": "string"},
+    		{"name": "value", "type": "float"}
+    	]
+    }}}
+  ]
+}

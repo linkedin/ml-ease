@@ -1,0 +1,21 @@
+# The sample config file for testing admm
+# input paths
+input.paths=/user/ml-ease/sample-avro
+# output dir
+output.base.path=/user/ml-ease/sample-out
+# test data path
+test.path=/user/ml-ease/sample-test-avro
+# Admm parameters
+num.blocks=20
+lambda=1,10,100
+num.iters=20
+regularizer=2
+test.loglik.per.iter=true
+###### Additional parameters for better admm convergence performance in L2
+#rho=1,1,1
+#initialize.boost.rate=1.5
+#rho.adapt.coefficient=0.01
+
+# Hadoop parameters
+hadoop-conf.mapred.job.queue.name=default
+force.output.overwrite=true

@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "doc": "Output for RegressionPrepare job before running Regression train jobs",
+  "name": "RegressionPrepareOutput",
+  "namespace": "com.linkedin.mlease.regression.avro",
+  "fields" : [
+    { "name": "key", "type": "string" },
+    { "name": "response", "type": "int" },
+    { "name": "features", "type": {"type": "array", "items": {
+    	"type": "record", "name": "feature", "fields": [
+    		{"name": "name", "type": "string"},
+    		{"name": "term", "type": "string"},
+    		{"name": "value", "type": "float"}
+    	]
+    }}},
+    { "name": "weight", "type": "float"},
+    { "name": "offset", "type": "float"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "doc": "The map of lambda values to rho values",
+  "name": "LambdaRhoMap",
+  "namespace": "com.linkedin.mlease.regression.avro",
+  "fields" : [
+    { "name": "lambda", "type": "float" },
+    { "name": "rho", "type": "float" }
+  ]
+}

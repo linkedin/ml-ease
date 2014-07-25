@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "doc": "Sample test loglik over iterations",
+  "name": "SampleTestLoglik",
+  "namespace": "com.linkedin.mlease.regression.avro",
+  "fields" : [
+    { "name": "lambda", "type": "string" },
+    { "name": "iter", "type": "int" },
+    { "name": "testLoglik", "type": "float" }
+  ]
+}

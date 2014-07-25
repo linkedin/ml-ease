@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "doc": "Model output from RegressionTrain",
+  "name": "RegressionTestLoglikOutput",
+  "namespace": "com.linkedin.mlease.regression.avro",
+  "fields" : [
+    { "name": "key", "type": "string" },
+    { "name": "testLoglik", "type": "float" },
+    { "name": "count", "type": "double" }
+    ]
+}

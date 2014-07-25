@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "doc": "Model output from AdmmTrain",
+  "name": "RegressionTrainOutput",
+  "namespace": "com.linkedin.mlease.regression.avro",
+  "fields" : [
+    { "name": "key", "type": "string" },
+    { "name": "model", "type": {"type": "array", "items": {
+    	"type": "record", "name": "feature", "fields": [
+    		{"name": "name", "type": "string"},
+    		{"name": "term", "type": "string"},
+    		{"name": "value", "type": "float"}
+    	]
+    }}},
+    { "name": "uplusx", "type": {"type": "array", "items": {
+    	"type": "record", "name": "feature1", "fields": [
+    		{"name": "name", "type": "string"},
+    		{"name": "term", "type": "string"},
+    		{"name": "value", "type": "float"}
+    	]
+    }}}
+  ]
+}
