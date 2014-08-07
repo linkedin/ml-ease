@@ -75,7 +75,9 @@ All the other fields are optional.
 - Intercept does not need to be put into the training data.
 - Below is a sample of training/test data:
 
-  ```Record 1:
+
+```
+Record 1:
   {
     "response" : 0,
     "features" : [ 
@@ -101,12 +103,6 @@ All the other fields are optional.
     "offset" : 0.0,
     "foo" : "whatever"
  }
-  ```
-
-```
-function test() {
-  console.log("notice the blank line before this function?");
-}
 ```
 
 - Weight is an optional field that specifies the weight of the observation. Default is 1.0. If you feel some observation is stronger than the others, feel free to use this field, say making the weak ones 0.5.
