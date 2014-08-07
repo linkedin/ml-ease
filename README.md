@@ -74,11 +74,11 @@ All the other fields are optional.
 - Training and Test data should have the same format. If not, it is probably fine as long as both have fields "response" and "features".
 - Intercept does not need to be put into the training data.
 - Below is a sample of training/test data:
-  ```
-  Record 1:
+  ```Record 1:
   {
     "response" : 0,
-    "features" : [ {
+    "features" : [ 
+    {
       "name" : "7",
       "term" : "33",
       "value" : 1.0
@@ -94,7 +94,8 @@ All the other fields are optional.
       "name" : "12",
       "term" : "132",
       "value" : 1.0
-    } ],
+    } 
+   ],
     "weight" : 1.0,
     "offset" : 0.0,
     "foo" : "whatever"
