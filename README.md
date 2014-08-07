@@ -115,10 +115,10 @@ Record 1:
   3. "sample-test-loglik" saves the sample test loglikelihood over all iterations for all lambdas. This is simply for you to study the convergence.
 - Output Model Format
 A model output record has the following format:
- ```
+``` 
  key:string,
  model:[{name:string, term:string, value:float}]
-```
+``` 
  "key" column saves the lambda value.
  "model" saves the model output for that lambda. "name" + "term" again represents a feature string, and "value" is the learned coefficient. Note that the first element of the model is always "(INTERCEPT)", which means the intercept.     Below is a sample of the learned model for lambda = 1.0 and 2.0:
 ``` 
@@ -185,35 +185,22 @@ This helps in terms of convergence, but also makes the data larger. But note: it
   * Example value, 5 when num.blocks>10.
 - AdmmTrain Job
   * It shares parameters with AdmmPrepare job, e.g. num.blocks, binary.feature, num.click.replicates. Please make sure they are the same as what are specified in AdmmPrepare.job.
-
-
- * input.paths: 
-    * Output path of the Admm Prepare job    * Example: ADMM-Prepare.output.path/tmp-data
-  * output.model.path    * The ROOT output path of the model directory    * Example: ADMM-Prepare.output.path
-  * test.path    * The test data path  * has.intercept    * Whether the model has the intercept or not, if not, intercept will be 0
-  * lambda    * L2 Penalty parameters    * Example values: 1,10,100
-  * num.iters    * number of ADMM iterations    * Example value: 20
-  * remove.tmp.dir    * Whether to remove tmp directories or not?
-  * epsilon    * Convergence parameter of ADMM    * Exampel value: 0.0001
-  * lambda.map    * Location of the lambda map on hdfs. This is for specifying different L2 penalty parameters for different coefficients. No need to use it in most cases  * short.feature.index    * How many features do you have? If the number is less than short.MAX, then set to be true, otherwise false  * test.loglik.per.iter    * Output test logliklihood per iteration? Usually setting to be true is good
+  * input.paths: 
+    * Output path of the Admm Prepare job    * Example: ADMM-Prepare.output.path/tmp-data  * output.model.path    * The ROOT output path of the model directory    * Example: ADMM-Prepare.output.path  * test.path    * The test data path  * has.intercept    * Whether the model has the intercept or not, if not, intercept will be 0  * lambda    * L2 Penalty parameters    * Example values: 1,10,100  * num.iters    * number of ADMM iterations    * Example value: 20  * remove.tmp.dir    * Whether to remove tmp directories or not?
+  * epsilon    * Convergence parameter of ADMM    * Exampel value: 0.0001  * lambda.map    * Location of the lambda map on hdfs. This is for specifying different L2 penalty parameters for different coefficients. No need to use it in most cases  * short.feature.index    * How many features do you have? If the number is less than short.MAX, then set to be true, otherwise false  * test.loglik.per.iter    * Output test logliklihood per iteration? Usually setting to be true is good
 - AdmmTest Job
-
-  * input.paths    * The test data path  * output.base.path    * The ROOT path of output for test results  * model.base.path    * The ROOT path of the model output- AdmmTestLoglik Job
+  * input.paths    * The test data path  * output.base.path    * The ROOT path of output for test results  * model.base.path    * The ROOT path of the model output- AdmmTestLoglik Job
   * This job will put a /_loglik subdir inside each test predicted directory.
-
   * input.base.paths
     * The ROOT path of output for test results
-
   * output.base.path    * The ROOT path of output for test-loglik results
 
 - NaiveTrain job
   * This job is mainly for training per-item model, i.e. for each item (such as campaign_id, creative_id) train an independent regression model.
   * It can also be used for training one logistic regression model for a large scale data. That's why it is called "naive" train: It splits the data into partitions, train independent regression models for each partition, and then take average of the coefficients.
   * The job parameters are very similar to AdmmTrain.java, except
-
   * compute.model.meanWhether to compute the mean of the coefficients that are learned from each partition. 
-Claim it to be true only if you are training one regression model for a large data using naive method.true/false
-  * data.size.thresholdFor per-item model, whether to ignore the item if the data size of this item is smaller than the threshold.Supporting Team
+Claim it to be true only if you are training one regression model for a large data using naive method.true/false  * data.size.thresholdFor per-item model, whether to ignore the item if the data size of this item is smaller than the threshold.Supporting Team
 =================
 
 This tool is developed by Applied Relevance Science team at LinkedIn. People who contributed to this tool include:
