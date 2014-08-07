@@ -1,8 +1,8 @@
 ml-ease
 
 
-Table of Contents
-=================
+# Table of Contents
+
 
 - What is ml-ease?
 - Copyright
@@ -16,13 +16,13 @@ Table of Contents
 - Supporting Team
 
 
-What is ml-ease?
-=============
+# What is ml-ease?
+
 
 ml-ease is the Open-sourced Large-scale machine learning library from LinkedIn; currently it has ADMM based large scale logistic regression.
 
-Copyright
-=========
+# Copyright
+
 
 [2014] LinkedIn Corp. All rights reserved.
  Licensed under the Apache License, Version 2.0 (the "License");?you may not use this file except in compliance with the License.?You may obtain a copy of the License at  http://www.apache.org/licenses/LICENSE-2.0
@@ -47,7 +47,7 @@ Quick Start
 - Installation: This uses maven to compile. Command: "mvn clean install"
 - Run ADMM: 
   1. Copy the jar ./target/ml-ease-1.0-jar-with-dependencies.jar to hadoop gateway. And then set up a config file like ./examples/sample-config.job.
-  2.To run Admm: hadoop jar ml-ease-1.0-jar-with-dependencies.jar com.linkedin.ml-ease.regression.jobs.Regression sample-config.job.
+  2. To run Admm: hadoop jar ml-ease-1.0-jar-with-dependencies.jar com.linkedin.ml-ease.regression.jobs.Regression sample-config.job.
 
 Code structure
 ==============
@@ -74,6 +74,7 @@ All the other fields are optional.
 - Training and Test data should have the same format. If not, it is probably fine as long as both have fields "response" and "features".
 - Intercept does not need to be put into the training data.
 - Below is a sample of training/test data:
+  ```
   Record 1:
   {
     "response" : 0,
@@ -98,6 +99,7 @@ All the other fields are optional.
     "offset" : 0.0,
     "foo" : "whatever"
  }
+  ```
 - Weight is an optional field that specifies the weight of the observation. Default is 1.0. If you feel some observation is stronger than the others, feel free to use this field, say making the weak ones 0.5.
 - Offset is an optional field. Default is 0.0. When it is non-zero, the model will learn coefficients beta by x'beta+offset instead of x'beta.
 - foo is an extra field to let you know that ADMM allows you to put extra fields in.
