@@ -176,13 +176,10 @@ Record 1:
 
 # Detailed Instructions
 - AdmmPrepare Job
-  * input.paths  * The input path of training data- output.path  * The ROOT output path of the model directory- num.blocks  * Number of partitions for ADMM, choose a large enough value so that your memory doesn't blow up. 
-  * But note: The smaller this value is, the better convergence becomes.- binary.feature  * Are all the features in this data binary? true/false
-- map.key  * The field name for partitioning the data. This is only useful for training per-item model using NaiveTrain.java"campaign_id"
-
-- num.click.replicates  * This is a trick: For sparse data sets where positives are rare, we replicate the clicks into N copies and give each of them 1/N weight. 
-This helps in terms of convergence, but also makes the data larger. But note: it should be less than number of partitions.  * Example value, 1 when num.blocks<10. 
-  * Example value, 5 when num.blocks>10.
+  * input.paths    * The input path of training data  * output.path    * The ROOT output path of the model directory  * num.blocks    * Number of partitions for ADMM, choose a large enough value so that your memory doesn't blow up. 
+    * But note: The smaller this value is, the better convergence becomes.  * binary.feature    * Are all the features in this data binary? true/false  * map.key    * The field name for partitioning the data. This is only useful for training per-item model using NaiveTrain.java  * num.click.replicates    * This is a trick: For sparse data sets where positives are rare, we replicate the clicks into N copies and give each of them 1/N weight. 
+This helps in terms of convergence, but also makes the data larger. But note: it should be less than number of partitions.    * Example value, 1 when num.blocks<10. 
+    * Example value, 5 when num.blocks>10.
 - AdmmTrain Job
   * It shares parameters with AdmmPrepare job, e.g. num.blocks, binary.feature, num.click.replicates. Please make sure they are the same as what are specified in AdmmPrepare.job.
   * input.paths: 
