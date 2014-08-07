@@ -74,6 +74,7 @@ All the other fields are optional.
 - Training and Test data should have the same format. If not, it is probably fine as long as both have fields "response" and "features".
 - Intercept does not need to be put into the training data.
 - Below is a sample of training/test data:
+
   ```Record 1:
   {
     "response" : 0,
@@ -101,6 +102,13 @@ All the other fields are optional.
     "foo" : "whatever"
  }
   ```
+
+```
+function test() {
+  console.log("notice the blank line before this function?");
+}
+```
+
 - Weight is an optional field that specifies the weight of the observation. Default is 1.0. If you feel some observation is stronger than the others, feel free to use this field, say making the weak ones 0.5.
 - Offset is an optional field. Default is 0.0. When it is non-zero, the model will learn coefficients beta by x'beta+offset instead of x'beta.
 - foo is an extra field to let you know that ADMM allows you to put extra fields in.
